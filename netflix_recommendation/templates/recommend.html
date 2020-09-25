@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a class="btn btn-info pull-right" href="{% url 'index' %}"> Back to Listing </a>
+    {% if title %}
+        <h1>{{ title }}</h1>
+        <h3>Description</h3>
+        <p>{{description}}</p>
+        <h4>Director: {{director}}</h4>
+        <hr>
+        <h3>Recommendations</h3>
+        <ol>
+        {% for show in recommended %}
+            <li>{{show}}</li>    
+        {% endfor %}
+        </ol>
+    {% else %}
+        <p> {{message}}</p>
+    {% endif %}
+
+{% endblock %}
